@@ -14,4 +14,8 @@ export class UserService {
   getUser(username: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/${username}`);
   }
+
+  getRepositories(username: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/${username}/repos`);
+  }
 }

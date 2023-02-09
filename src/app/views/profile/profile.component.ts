@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { Router } from '@angular/router';
 import { User } from './../../user';
 import { Component, Input, OnInit } from '@angular/core';
@@ -9,15 +10,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   nav: any;
-  userData: User[] = [];
+  userData: any;
+  userRepositories: any;
 
-  constructor(private router: Router){
+  constructor(
+    private router: Router,
+    private userService: UserService
+  ) {
     this.nav = this.router.getCurrentNavigation();
-    console.log(this.nav);
+    this.userData = this.nav.extras.state;
   }
 
-  ngOnInit(): void{
-    this.userData = this.nav.extras.state;
-    console.log(this.userData);
+  ngOnInit(): void {
+    this.getRepositories();
+  }
+
+  getRepositories(): void {
+    this.userService.getRepositories(this.userData.login)
+      .subscribe((repo) => {
+        this.userRepositories = repo;
+      })
   }
 }
