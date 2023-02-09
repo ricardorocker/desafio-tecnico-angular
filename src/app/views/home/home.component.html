@@ -1,1 +1,17 @@
-<p>home works!</p>
+<h1>Search d_evs</h1>
+<div class="input-group mb-3">
+
+  <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+
+    <label>
+      <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+      formControlName="username">
+      <span *ngIf="false">
+        Favor digitar usuário
+      </span>
+    </label>
+
+    <button type="submit" class="input-group-text">Search</button>
+
+  </form>
+</div>
