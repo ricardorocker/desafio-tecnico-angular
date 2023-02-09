@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { User } from './../../user';
 import { UserService } from './../../services/user.service';
 import { Component } from '@angular/core';
@@ -9,10 +10,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
   constructor(
     private formBuilder: FormBuilder,
-    private user: UserService
+    private user: UserService,
+    private router: Router
     ) { }
 
   public searchForm: FormGroup = this.formBuilder.group({
@@ -21,7 +22,12 @@ export class HomeComponent {
 
   submitForm(): void {
     this.user.getUser(this.searchForm.get('username')?.value)
-      .subscribe(user => console.log(user));
+      .subscribe((user) => {
+        this.router.navigateByUrl('/perfil', {
+          state: user
+        })
+      },
+      error => console.log(error.message)
+      );
   }
-
 }
