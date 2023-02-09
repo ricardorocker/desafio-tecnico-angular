@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faUsers, faUserPlus, faBuilding, faMapMarkedAlt, faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faUsers, faUserPlus, faBuilding, faMapMarkedAlt, faEnvelope, faGlobe, faStar, faCircle } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +22,8 @@ export class ProfileComponent implements OnInit {
   faEnvelope = faEnvelope;
   faGlobe = faGlobe;
   faTwitter = faTwitter;
+  faStar = faStar;
+  faCircle = faCircle;
 
   constructor(
     private router: Router,
@@ -39,6 +41,10 @@ export class ProfileComponent implements OnInit {
     this.userService.getRepositories(this.userData.login)
       .subscribe((repo) => {
         this.userRepositories = repo;
+        console.log(this.userRepositories);
+        this.userRepositories.sort(function (a: any, b: any) {
+          return b.stargazers_count - a.stargazers_count;
+        });
       })
   }
 
