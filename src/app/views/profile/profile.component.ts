@@ -13,7 +13,8 @@ import { faUsers, faUserPlus, faBuilding, faMapMarkedAlt, faEnvelope, faGlobe, f
 export class ProfileComponent implements OnInit {
   nav: any;
   userData: any;
-  userRepositories: any;
+  userRepositories: any = [];
+  repositoriesFiltered: any = [];
 
   faUsers = faUsers;
   faUserPlus = faUserPlus;
@@ -45,10 +46,21 @@ export class ProfileComponent implements OnInit {
         this.userRepositories.sort(function (a: any, b: any) {
           return b.stargazers_count - a.stargazers_count;
         });
+
+        this.repositoriesFiltered = this.userRepositories;
       })
   }
 
   goToUserSite(site: string): void {
     window.open(site, '_blank');
+  }
+
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+
+    this.repositoriesFiltered = this.userRepositories.filter((repositorie: any) => {
+      return repositorie.name.includes(value)
+    })
   }
 }

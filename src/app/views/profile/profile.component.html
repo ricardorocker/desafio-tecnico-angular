@@ -1,6 +1,11 @@
 <div class="header">
-  <h3>Search d_evs</h3>
-  <input type="text" placeholder="Search">
+  <div class="input-group mb-3" style="width: 60%; margin: 0 auto;">
+    <div class="input-group-prepend" style="background-color: transparent; border: none;">
+      <span class="input-group-text" style="background-color: transparent; border: none;">Search
+        d_evs</span>
+    </div>
+    <input type="text" class="form-control" placeholder="🔍 {{ userData.name }}" (input)="search($event)">
+  </div>
 </div>
 
 <div class="row">
@@ -9,8 +14,8 @@
     <div class="card">
       <div class="card-header">
         <div class="row">
-          <div class="col-md-2">
-            <img src="{{ userData.avatar_url }}" class="rounded-circle" width="55" height="55" />
+          <div class="col-md-2 d-flex align-items-center">
+            <img src="{{ userData.avatar_url }}" class="rounded-circle img-fluid" width="55" height="55" />
           </div>
           <div class="col-md-10">
             <h4>{{ userData.name }}</h4>
@@ -104,7 +109,7 @@
 
   </div>
   <div class="col-6">
-    <div *ngFor="let repository of userRepositories">
+    <div *ngFor="let repository of repositoriesFiltered">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">
