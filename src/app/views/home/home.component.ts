@@ -1,3 +1,5 @@
+import { User } from './../../user';
+import { UserService } from './../../services/user.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -8,14 +10,18 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class HomeComponent {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private user: UserService
+    ) { }
 
   public searchForm: FormGroup = this.formBuilder.group({
     username: ['', Validators.required]
   })
 
   submitForm(): void {
-    console.log(this.searchForm);
+    this.user.getUser(this.searchForm.get('username')?.value)
+      .subscribe(user => console.log(user));
   }
 
 }
