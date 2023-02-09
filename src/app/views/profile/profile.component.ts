@@ -1,7 +1,9 @@
 import { UserService } from './../../services/user.service';
 import { Router } from '@angular/router';
-import { User } from './../../user';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faUsers, faUserPlus, faBuilding, faMapMarkedAlt, faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +14,14 @@ export class ProfileComponent implements OnInit {
   nav: any;
   userData: any;
   userRepositories: any;
+
+  faUsers = faUsers;
+  faUserPlus = faUserPlus;
+  faBuilding = faBuilding;
+  faMapMarkedAlt = faMapMarkedAlt;
+  faEnvelope = faEnvelope;
+  faGlobe = faGlobe;
+  faTwitter = faTwitter;
 
   constructor(
     private router: Router,
@@ -30,5 +40,9 @@ export class ProfileComponent implements OnInit {
       .subscribe((repo) => {
         this.userRepositories = repo;
       })
+  }
+
+  goToUserSite(site: string): void {
+    window.open(site, '_blank');
   }
 }
