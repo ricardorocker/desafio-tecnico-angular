@@ -11,7 +11,7 @@ Para instalar o projeto você deve ter os seguintes programas instalados:
 ## Instalando o projeto
 1. Clone o projeto na sua máquina utilizando o comando a seguir:
 ```
-git clone https://github.com/petize/teste-petize.git
+gh repo clone ricardorocker/teste-petize
 ```
 2. Instale as dependências do projeto, rodando o seguinte comando na raíz do mesmo:
 ```
