@@ -1,27 +1,46 @@
-# PetizeTeste
+# Teste-Petize
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
+Esse projeto consiste em um teste para o processo seletivo da [Petize](https://www.petize.com.br/).
 
-## Development server
+## Instalação
+Para instalar o projeto você deve ter os seguintes programas instalados:
+- Node.js versão 14.x
+- Angular CLI 8.x
+- Gerenciador de pacotes npm
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instalando o projeto
+1. Clone o projeto na sua máquina utilizando o comando a seguir:
+```
+git clone https://github.com/petize/teste-petize.git
+```
+2. Instale as dependências do projeto, rodando o seguinte comando na raíz do mesmo:
+```
+npm install
+```
 
-## Code scaffolding
+## Rodando o ambiente de desenvolvimento
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Para rodar o ambiente de desenvolvimento, utilize o seguinte comando na raíz do projeto:
+```
+ng serve
+```
+2. Abra o seu navegador web e insira o endereço http://localhost:4200/
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Rodando a build de deploy da aplicação
 
-## Running unit tests
+1. Para rodar a build de deploy da aplicação rode o seguinte comando na raíz do projeto:
+```
+ng build --prod
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Motivação para escolher a biblioteca Bootstrap
+Eu já utilizo o Bootstrap no meu dia a dia na empresa que trabalho e recentemente criei meu site pessoal com ele também. O Bootstrap facilita e acelera o desenvolvimento de sites e apliccontinueivo, economizando tempo e aumentando a produtividade.
 
-## Running end-to-end tests
+## Estrutura do projeto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Para organizar melhor a visualização da estrutura do projeto, foi removido o arquivo app.component.html e app.component.css, que são arquivos desnecessários, e criado mais três pastas:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- components: onde fica o default-layout.component, que é o template que o app.component referencia;
+- views: onde armazenam-se as páginas do site;
+- services: onde estão todas as requisições para o back-end.
