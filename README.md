@@ -1,4 +1,4 @@
-# Teste-Petize
+# Teste-Petize Ricardo Rocker
 
 Esse projeto consiste em um teste para o processo seletivo da [Petize](https://www.petize.com.br/).
 
