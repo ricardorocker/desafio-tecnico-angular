@@ -1,129 +1,134 @@
-<div class="header">
-  <div class="input-group mb-3" style="width: 60%; margin: 0 auto;">
-    <div class="input-group-prepend" style="background-color: transparent; border: none;">
-      <span class="input-group-text" style="background-color: transparent; border: none;">Search
-        d_evs</span>
-    </div>
-    <input type="text" class="form-control" placeholder="🔍 {{ userData.name }}" (input)="search($event)">
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-4">
-
-    <div class="card">
-      <div class="card-header">
-        <div class="row">
-          <div class="col-md-2 d-flex align-items-center">
-            <img src="{{ userData.avatar_url }}" class="rounded-circle img-fluid" width="55" height="55" />
-          </div>
-          <div class="col-md-10">
-            <h4>{{ userData.name }}</h4>
-            <h6>@{{ userData.login }}</h6>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            {{ userData.bio }}
-          </div>
-        </div>
+<div class="profile-container">
+  <div class="header d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+      <div class="col-3">
+        <span class="primary">Search</span><span class="secondary"> d_evs</span>
       </div>
-      <div class="card-body">
-        <div class="row" *ngIf="userData.followers">
-          <div class="col-md-1">
-            <fa-icon [icon]="faUsers"></fa-icon>
-          </div>
-          <div class="col-md-11">
-            <h6>
-              {{ userData.followers }}
-              Seguidores
-            </h6>
-          </div>
-        </div>
-        <div class="row" *ngIf="userData.following">
-          <div class="col-md-1">
-            <fa-icon [icon]="faUserPlus"></fa-icon>
-          </div>
-          <div class="col-md-11">
-            <h6>
-              {{ userData.following }}
-              Seguindo
-            </h6>
-          </div>
-        </div>
-        <div class="row" *ngIf="userData.company">
-          <div class="col-md-1">
-            <fa-icon [icon]="faBuilding"></fa-icon>
-          </div>
-          <div class="col-md-11">
-            <h6>
-              {{ userData.company }}
-            </h6>
-          </div>
-        </div>
-        <div class="row" *ngIf="userData.location">
-          <div class="col-md-1">
-            <fa-icon [icon]="faMapMarkedAlt"></fa-icon>
-          </div>
-          <div class="col-md-11">
-            <h6>
-              {{ userData.location }}
-            </h6>
-          </div>
-        </div>
-        <div class="row" *ngIf="userData.email">
-          <div class="col-md-1">
-            <fa-icon [icon]="faEnvelope"></fa-icon>
-          </div>
-          <div class="col-md-11" *ngIf="userData.email">
-            <h6>
-              {{ userData.email }}
-            </h6>
-          </div>
-        </div>
-        <div class="row" *ngIf="userData.blog">
-          <div class="col-md-1">
-            <fa-icon [icon]="faGlobe"></fa-icon>
-          </div>
-          <div class="col-md-11">
-            <h6>
-              {{ userData.blog }}
-            </h6>
-          </div>
-        </div>
-        <div class="row" *ngIf="userData.twitter_username">
-          <div class="col-md-1">
-            <fa-icon [icon]="faTwitter"></fa-icon>
-          </div>
-          <div class="col-md-11">
-            <h6>
-              @{{ userData.twitter_username }}
-            </h6>
-          </div>
-        </div>
-      </div>
-      <div class="card-footer" *ngIf="userData.blog">
-        <button type="button" class="btn btn-primary w-100" (click)="goToUserSite(userData.blog)">Contato</button>
+      <div class="col-9">
+        <input type="text" class="form-control" placeholder="🔍 {{ userData.name }}" (input)="search($event)">
       </div>
     </div>
-
   </div>
-  <div class="col-6">
-    <div *ngFor="let repository of repositoriesFiltered">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">
-            <strong>
-              <a href="{{repository.html_url}}" target="_blank" style="text-decoration:none; color:inherit;">
-                {{repository.name}}
-              </a>
-            </strong>
-          </h5>
-          <p class="card-text">{{repository.description}}</p>
-          <p class="card-text">
-            <fa-icon [icon]="faStar"></fa-icon>
-            {{repository.stargazers_count}} ● <span>{{repository.updated_at | date:'dd/MM/yyyy'}}</span>
-          </p>
+
+  <div class="body">
+    <div class="row">
+      <div class="col-3">
+        <div class="card">
+          <div class="card-header bg-white">
+            <div class="row mb-3">
+              <div class="col-md-4 d-flex align-items-center">
+                <img src="{{ userData.avatar_url }}" class="rounded-circle img-fluid" width="55" height="55" />
+              </div>
+              <div class="col-md-8">
+                <h4 class="text-dark">{{ userData.name }}</h4>
+                <h6 class="login">@{{ userData.login }}</h6>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-12">
+                {{ userData.bio }}
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row mb-2" *ngIf="userData.followers">
+              <div class="col-md-1">
+                <fa-icon [icon]="faUsers"></fa-icon>
+              </div>
+              <div class="col-md-11">
+                <h6 class="card-body-itens">
+                  {{ userData.followers }}
+                  Seguidores
+                </h6>
+              </div>
+            </div>
+            <div class="row mb-4" *ngIf="userData.following">
+              <div class="col-md-1">
+                <fa-icon [icon]="faUserPlus"></fa-icon>
+              </div>
+              <div class="col-md-11">
+                <h6 class="card-body-itens">
+                  {{ userData.following }}
+                  Seguindo
+                </h6>
+              </div>
+            </div>
+            <div class="row mb-2" *ngIf="userData.company">
+              <div class="col-md-1">
+                <fa-icon [icon]="faBuilding"></fa-icon>
+              </div>
+              <div class="col-md-11">
+                <h6 class="card-body-itens">
+                  {{ userData.company }}
+                </h6>
+              </div>
+            </div>
+            <div class="row mb-2" *ngIf="userData.location">
+              <div class="col-md-1">
+                <fa-icon [icon]="faMapMarkedAlt"></fa-icon>
+              </div>
+              <div class="col-md-11">
+                <h6 class="card-body-itens">
+                  {{ userData.location }}
+                </h6>
+              </div>
+            </div>
+            <div class="row mb-2" *ngIf="userData.email">
+              <div class="col-md-1">
+                <fa-icon [icon]="faEnvelope"></fa-icon>
+              </div>
+              <div class="col-md-11" *ngIf="userData.email">
+                <h6 class="card-body-itens">
+                  {{ userData.email }}
+                </h6>
+              </div>
+            </div>
+            <div class="row mb-2" *ngIf="userData.blog">
+              <div class="col-md-1">
+                <fa-icon [icon]="faGlobe"></fa-icon>
+              </div>
+              <div class="col-md-11">
+                <h6 class="card-body-itens">
+                  {{ userData.blog }}
+                </h6>
+              </div>
+            </div>
+            <div class="row mb-2" *ngIf="userData.twitter_username">
+              <div class="col-md-1">
+                <fa-icon [icon]="faTwitter"></fa-icon>
+              </div>
+              <div class="col-md-11">
+                <h6 class="card-body-itens">
+                  @{{ userData.twitter_username }}
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer" *ngIf="userData.blog">
+            <button type="button" class="btn btn-default w-100 mt-4" (click)="goToUserSite(userData.blog)">Contato</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-9">
+        <div class="card repositories">
+          <div *ngFor="let repository of repositoriesFiltered">
+            <div class="card-body">
+              <h5 class="card-title text-dark">
+                <strong>
+                  <a href="{{repository.html_url}}" target="_blank" style="text-decoration:none; color:inherit;">
+                    {{repository.name}}
+                  </a>
+                </strong>
+              </h5>
+              <p class="card-text">{{repository.description}}</p>
+              <p class="card-text">
+                <fa-icon [icon]="faStar"></fa-icon>
+                {{repository.stargazers_count}} <span class="dot"> ● </span> <span>{{repository.updated_at | date:'dd/MM/yyyy'}}</span>
+              </p>
+            </div>
+            <hr>
+          </div>
         </div>
       </div>
     </div>

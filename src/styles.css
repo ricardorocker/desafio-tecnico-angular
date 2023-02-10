@@ -1,2 +1,30 @@
+.primary {
+  color: #0069CA;
+}
+
+.secondary{
+  color: #8C19D2;
+}
+
+.btn-default {
+  background-color: #8C19D2;
+  color: #fff;
+  min-width: 176px;
+  min-height: 48px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.btn-default:hover {
+  background-color: #0b5d64;
+  color: #fff;
+}
+
+.form-control {
+  min-height: 48px;
+  font-size: 18px;
+}
+
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css"
+
