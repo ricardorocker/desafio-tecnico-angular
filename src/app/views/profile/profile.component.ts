@@ -63,4 +63,11 @@ export class ProfileComponent implements OnInit {
       return repositorie.name.includes(value)
     })
   }
+
+  daysAgo(pushedAt: any) {
+    let now = new Date();
+    let repositoryPushedAt = new Date(pushedAt);
+    let daysAgo = Math.floor((now.getTime() - repositoryPushedAt.getTime()) / (1000 * 60 * 60 * 24));
+    return daysAgo;
+  }
 }

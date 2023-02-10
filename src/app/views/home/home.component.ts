@@ -14,20 +14,24 @@ export class HomeComponent {
     private formBuilder: FormBuilder,
     private user: UserService,
     private router: Router
-    ) { }
+  ) { }
 
   public searchForm: FormGroup = this.formBuilder.group({
-    username: ['', Validators.required]
+    username: ['', [Validators.required, Validators.minLength(2)]]
   })
 
   submitForm(): void {
-    this.user.getUser(this.searchForm.get('username')?.value)
-      .subscribe((user) => {
-        this.router.navigateByUrl('/perfil', {
-          state: user
-        })
-      },
-      error => console.log(error.message)
-      );
+    if (this.searchForm.valid) {
+      this.user.getUser(this.searchForm.get('username')?.value)
+        .subscribe((user) => {
+          this.router.navigateByUrl('/perfil', {
+            state: user
+          })
+        },
+          error => console.log(error.message)
+        );
+    } else {
+      this.searchForm.get('username')?.markAsTouched();
+    }
   }
 }

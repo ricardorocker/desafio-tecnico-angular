@@ -2,7 +2,9 @@
   <div class="header d-flex justify-content-center align-items-center">
     <div class="row w-100">
       <div class="col-3">
-        <span class="primary">Search</span><span class="secondary"> d_evs</span>
+        <a [routerLink]="['']" style="text-decoration:none; color:inherit;">
+          <span class="primary">Search</span><span class="secondary"> d_evs</span>
+        </a>
       </div>
       <div class="col-9">
         <input type="text" class="form-control" placeholder="🔍 {{ userData.name }}" (input)="search($event)">
@@ -105,7 +107,8 @@
             </div>
           </div>
           <div class="card-footer" *ngIf="userData.blog">
-            <button type="button" class="btn btn-default w-100 mt-4" (click)="goToUserSite(userData.blog)">Contato</button>
+            <button type="button" class="btn btn-default w-100 mt-4"
+              (click)="goToUserSite(userData.blog)">Contato</button>
           </div>
         </div>
       </div>
@@ -124,7 +127,9 @@
               <p class="card-text">{{repository.description}}</p>
               <p class="card-text">
                 <fa-icon [icon]="faStar"></fa-icon>
-                {{repository.stargazers_count}} <span class="dot"> ● </span> <span>{{repository.updated_at | date:'dd/MM/yyyy'}}</span>
+                {{repository.stargazers_count}} <span class="dot"> ● </span> <span>Atualizado há {{
+                  daysAgo(repository.pushed_at) }} dias</span>
+                  <!-- TODO: Veririfcar pq updated_at esta vindo errado -->
               </p>
             </div>
             <hr>
