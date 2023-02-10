@@ -4,8 +4,8 @@ Esse projeto consiste em um teste para o processo seletivo da [Petize](https://w
 
 ## Instalação
 Para instalar o projeto você deve ter os seguintes programas instalados:
-- Node.js versão 14.x
-- Angular CLI 8.x
+- Node.js versão 16.16.0
+- Angular CLI 15.1.5
 - Gerenciador de pacotes npm
 
 ## Instalando o projeto
@@ -35,7 +35,7 @@ ng build --prod
 ```
 
 ## Motivação para escolher a biblioteca Bootstrap
-Eu já utilizo o Bootstrap no meu dia a dia na empresa que trabalho e recentemente criei meu site pessoal com ele também. O Bootstrap facilita e acelera o desenvolvimento de sites e apliccontinueivo, economizando tempo e aumentando a produtividade.
+Eu já utilizo o Bootstrap no meu dia a dia na empresa que trabalho atualmente e recentemente criei meu site pessoal com ele também. O Bootstrap facilita e acelera o desenvolvimento de sites e aplicativo, economizando tempo e aumentando a produtividade.
 
 ## Estrutura do projeto
 
