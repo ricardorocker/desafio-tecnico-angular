@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
-import { User } from './../../user';
-import { UserService } from './../../services/user.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { UserService } from './../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +10,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  messageError: string = 'Por favor, digite no mínimo 2 caracteres';
+
   constructor(
     private formBuilder: FormBuilder,
     private user: UserService,
@@ -28,10 +30,18 @@ export class HomeComponent {
             state: user
           })
         },
-          error => console.log(error.message)
+          (err) => {
+            if (err.error.message === 'Not Found') {
+              this.messageError = 'Usuário não encontrado, favor verificar nome digitado.'
+            } else {
+              this.messageError = 'Erro na requisição do gitHub.'
+            }
+            this.searchForm.get('username')?.setErrors({'incorrect': true});
+          }
         );
     } else {
       this.searchForm.get('username')?.markAsTouched();
+      this.messageError = 'Por favor, digite no mínimo 2 caracteres';
     }
   }
 }

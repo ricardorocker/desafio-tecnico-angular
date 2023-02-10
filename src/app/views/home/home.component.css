@@ -1,39 +1,40 @@
-/* Search d_evs */
-
-.Searchd_evs{
-  position: absolute;
-  width: 488px;
-  height: 109px;
-  left: 476px;
-  top: 405px;
-
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 80px;
-  line-height: 109px;
-  letter-spacing: 0.01em;
-
-}
-
-h1{
+h1 {
   font-weight: 500;
   font-size: 80px;
 }
 
 .primary {
   text-shadow:
-           -1px -1px 0px #000000,
-           -1px 1px 0px #000000,
-            1px -1px 0px #000000,
-            1px 0px 0px #000000;
+    -1px -1px 0px #000000,
+    -1px 1px 0px #000000,
+    1px -1px 0px #000000,
+    1px 0px 0px #000000;
 }
 
-.secondary{
+.secondary {
   text-shadow:
-           -1px -1px 0px #000000,
-           -1px 1px 0px #000000,
-            1px -1px 0px #000000,
-            1px 0px 0px #000000;
+    -1px -1px 0px #000000,
+    -1px 1px 0px #000000,
+    1px -1px 0px #000000,
+    1px 0px 0px #000000;
 }
 
+@media (max-width: 750px) {
+  h1 {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 550px) {
+  .primary {
+    text-shadow: none;
+  }
+
+  .secondary {
+    text-shadow: none;
+  }
+
+  .button{
+    display: none;
+  }
+}

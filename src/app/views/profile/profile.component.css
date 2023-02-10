@@ -3,10 +3,6 @@
   color: #4A5568;
 }
 
-fa-icon {
-  color: #8d99ac;
-}
-
 .header {
   height: 88px;
   background-color: #FFF;
@@ -18,10 +14,11 @@ input::placeholder {
 }
 
 .form-control {
-  max-width: 590px;
+  width: 80%;
 }
 
-.primary, .secondary {
+.primary,
+.secondary {
   font-size: 32px;
 }
 
@@ -29,32 +26,8 @@ input::placeholder {
   padding: 80px;
 }
 
-.card-header {
-  border: none;
-}
-
-.name {
-  font-size: 20px;
-  font-weight: bolder;
-}
-
-.login {
-  color: #A0AEC0;
-  font-weight: lighter;
-  font-size: 14px;
-}
-
-.card-body-itens {
-  font-weight: normal;
-}
-
-.card-footer {
-  background-color: #FCFCFC;
-  border: none;
-}
-
-.card {
-  border: none;
+.card-profile {
+  max-width: 320px;
 }
 
 .dot {
@@ -66,4 +39,36 @@ input::placeholder {
 hr {
   color: #919191;
   margin: 0 20px;
+}
+
+@media (max-width: 850px) {
+  .form-control {
+    width: 100%;
+    min-width: 194px;
+  }
+}
+
+@media (max-width: 700px) {
+  .col {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .body {
+    padding: 0;
+  }
+
+  .col {
+    width: 100%;
+  }
+
+  input {
+    display: none;
+  }
+
+  .header {
+    text-align: center;
+  }
 }
